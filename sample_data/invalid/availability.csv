@@ -1,0 +1,10 @@
+resource_id,day,period,available
+T01,Mon,3,0
+T01,Fri,5,0
+LAB1,Wed,5,0
+T77,Mon,1,0
+T01,Funday,2,0
+T01,Sat,2,0
+T02,Mon,15,0
+T02,Tue,abc,0
+T02,Tue,2,maybe

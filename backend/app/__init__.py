@@ -1,0 +1,1 @@
+"""SmartSlot backend package."""

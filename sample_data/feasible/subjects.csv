@@ -1,0 +1,6 @@
+subject_id,name,department_id,session_type
+CS201,Data Structures,CE,lecture
+CS202,DBMS,CE,lecture
+CS203,Operating Systems,CE,lecture
+MA201,Engineering Maths,CE,lecture
+CS291,DS Lab,CE,practical

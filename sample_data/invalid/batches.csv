@@ -1,0 +1,7 @@
+batch_id,name,semester,student_count,department_id
+CE-A,CE-A,3,60,CE
+CE-B,CE-B,3,55,CE
+CE-C,CE-C,3,abc,CE
+CE-D,CE-D,3,-5,CE
+CE-A,CE-A Repeat,3,40,CE
+CE-E,,3,50,CE

@@ -1,0 +1,152 @@
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter Variable", Inter, ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800;
+    min-width: 720px;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-indigo-500 ring-offset-1 ring-offset-white;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  ::selection {
+    background: #c7d2fe;
+  }
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-card;
+  }
+  .input {
+    @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 disabled:bg-slate-100 disabled:text-slate-500;
+  }
+  select.input {
+    @apply appearance-none pr-9;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.6' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.6rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem 1.25rem;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+  .th {
+    @apply whitespace-nowrap px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-500;
+  }
+  .td {
+    @apply px-3 py-2 align-top text-sm text-slate-700;
+  }
+  /* diagonal hatch used for "unavailable" slots */
+  .hatch {
+    background-color: #f1f5f9;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(100, 116, 139, 0.28) 0,
+      rgba(100, 116, 139, 0.28) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  }
+  .hatch-red {
+    background-color: #fef2f2;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(220, 38, 38, 0.22) 0,
+      rgba(220, 38, 38, 0.22) 2px,
+      transparent 2px,
+      transparent 8px
+    );
+  }
+  .break-band {
+    background-color: #f8fafc;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.18) 0,
+      rgba(148, 163, 184, 0.18) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+  .scroll-thin {
+    position: relative; /* keeps sr-only / absolute children inside the scroll area */
+  }
+  .scroll-thin::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-slate-300;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------- printing
+   Printing a timetable renders a <PrintSheet> (a portal on <body>) and hides the whole app behind it. */
+@page {
+  size: A4 landscape;
+  margin: 10mm;
+}
+.print-sheet {
+  display: none;
+}
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    min-width: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .no-print,
+  [data-testid="app-header"],
+  [data-testid="sidebar"],
+  [data-testid="toast-region"] {
+    display: none !important;
+  }
+  /* a print sheet exists: show only the sheet */
+  body:has(.print-sheet) > *:not(.print-sheet) {
+    display: none !important;
+  }
+  .print-sheet {
+    display: block;
+  }
+  .print-page {
+    zoom: 0.88; /* keeps one timetable on one landscape A4 page */
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+  }
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}

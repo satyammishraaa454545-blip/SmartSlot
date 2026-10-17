@@ -1,0 +1,14 @@
+subject_id,batch_id,teacher_id,sessions_per_week,duration
+CS201,CE-A,T01,5,1
+CS202,CE-A,T03,4,1
+MA201,CE-A,T02,5,1
+CS291,CE-A,T04,2,2
+CS201,CE-B,T99,4,1
+XX999,CE-A,T01,3,1
+CS201,CE-Z,T01,3,1
+CS202,CE-B,T03,0,1
+MA201,CE-B,T02,four,1
+CS291,CE-B,T04,2,two
+,CE-B,T01,3,1
+MA201,CE-B,T01,2,0
+CS201,CE-A,T01,5,1

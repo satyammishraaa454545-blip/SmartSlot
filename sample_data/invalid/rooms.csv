@@ -1,0 +1,8 @@
+room_id,name,capacity,room_type
+R101,Room 101,65,classroom
+R102,Room 102,58,classroom
+LAB1,Computer Lab 1,70,lab
+R103,Room 103,abc,classroom
+R104,Room 104,40,auditorium
+R101,Room 101 Annex,30,classroom
+R105,Room 105,0,classroom
